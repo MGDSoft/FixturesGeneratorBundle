@@ -1,7 +1,7 @@
 Fixtures Generator Bundle For Doctrine
 ==================================
 
-This bundle generate the fictures code for doctrine, you can can override this code without problems 
+This bundle generate the fixtures code for doctrine, you can can override all code without problems 
 
 **Unestable becareful**
 

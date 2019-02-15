@@ -11,6 +11,11 @@ Installation
 composer require "mgd/fixtures_generator"
 ```
 
+Add Into bundles.php
+```
+    MGDSoft\FixturesGeneratorBundle\MgdsoftFixturesGeneratorBundle::class => ['dev' => true],
+```
+
 Configure
 
 ```

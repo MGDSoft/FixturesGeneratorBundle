@@ -1,0 +1,21 @@
+{
+    "name": "mgd/fixtures-generator-bundle",
+    "type": "symfony-bundle",
+    "description": "This Bundle provides a easy fixture generator bundle",
+    "keywords": ["rest"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Miguel García Domínguez",
+            "email": "miguelgd@mgdsoftware.es"
+        }
+    ],
+    "autoload":{
+        "psr-4":{
+            "MGDSoft\\FixturesGeneratorBundle\\": ""
+        }
+    },
+    "require": {
+        "php": "^5.5.9|~7.0"
+    }
+}

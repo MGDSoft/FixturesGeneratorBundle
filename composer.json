@@ -1,7 +1,7 @@
 {
-    "name": "mgd/fixtures-generator-bundle",
+    "name": "mgdsoft/fixtures-generator-bundle",
     "type": "symfony-bundle",
-    "description": "This Bundle provides a easy fixture generator bundle",
+    "description": "This Bundle provides a easy fixture generator for doctrine entities",
     "keywords": ["rest"],
     "license": "MIT",
     "authors": [

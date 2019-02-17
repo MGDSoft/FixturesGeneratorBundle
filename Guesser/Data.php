@@ -2,6 +2,7 @@
 
 namespace MGDSoft\FixturesGeneratorBundle\Guesser;
 
+use MGDSoft\FixturesGeneratorBundle\Exception\FixturesGeneratorException;
 use MGDSoft\FixturesGeneratorBundle\Extractor\Bean\PropertyDetails;
 use MGDSoft\FixturesGeneratorBundle\Generator\Fixture;
 
@@ -65,7 +66,7 @@ class Data
 
 
             default:
-                throw new \Exception("Unexpected type '$type' ");
+                throw new FixturesGeneratorException("Unexpected type '$type' ");
         }
     }
 }

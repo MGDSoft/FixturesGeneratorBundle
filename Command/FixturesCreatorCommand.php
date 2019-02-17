@@ -259,7 +259,7 @@ class FixturesCreatorCommand extends ContainerAwareCommand
 
             $question = new ConfirmationQuestion("This folder <info>\"$dirName\"</info> doesn't exist \n<question>do you want to create a new one?</question> ", true);
             if (!$this->helper->ask($this->input, $this->output, $question)) {
-                throw new \Exception('Folder is required');
+                throw new \RuntimeException('Folder is required');
             }
 
             mkdir($dirName, 0777, true);

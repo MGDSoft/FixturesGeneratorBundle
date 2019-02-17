@@ -8,7 +8,7 @@ This bundle generate the fixtures code for doctrine, you can can override all co
 Installation
 
 ``` 
-composer require "mgd/fixtures_generator"
+composer require "mgdsoft/fixtures-generator-bundle"
 ```
 
 Add Into bundles.php
@@ -32,8 +32,6 @@ Result will be
 
 src/DataFixtures/ORM/LibsAuto/AbstractLoadUserFixture.php, this file is a abstract class you can override all methods in child class, We recommend not to modify this class.  
 ```php
-<?php
-
 namespace App\DataFixtures\ORM\LibsAuto;
 
 use App\Entity\User;
@@ -122,8 +120,6 @@ abstract class AbstractLoadUserFixture extends AbstractFixture  implements Depen
 
 src/DataFixtures/ORM/LoadUserFixture.php, Here you can customize what you want
 ```php
-<?php
-
 namespace App\DataFixtures\ORM;
 
 use App\DataFixtures\ORM\LibsAuto\AbstractLoadUserFixture;
@@ -137,7 +133,6 @@ class LoadUserFixture extends AbstractLoadUserFixture
 And for test purpose is created tests/Fixtures/General/LoadTestUserFixture.php
 
 ```php
-<?php
 
 namespace Tests\Fixtures\General;
 
@@ -154,8 +149,6 @@ How to insert multiples rows?
 
 src/DataFixtures/ORM/LoadUserFixture.php, Here you can customize what you want
 ```php
-<?php
-
 namespace App\DataFixtures\ORM;
 
 use App\DataFixtures\ORM\LibsAuto\AbstractLoadUserFixture;
@@ -172,7 +165,7 @@ class LoadUserFixture extends AbstractLoadUserFixture
 }
 ```
 
-Each row insert has a doctrine reference with "class Prefix"-"$key"
+Each row inserted has a doctrine reference with "class Prefix"-"$key"
 
 
 To see all options execute

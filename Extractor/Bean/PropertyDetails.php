@@ -74,7 +74,6 @@ class PropertyDetails
         return $this->type;
     }
 
-
     /**
      * @return String
      */

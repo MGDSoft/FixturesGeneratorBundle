@@ -16,7 +16,8 @@ class Configuration implements ConfigurationInterface
                 ->children()
                     ->scalarNode('entity_path_default')->defaultValue("App\\Entity")->end()
                     ->scalarNode('template')->defaultValue(__DIR__ .'/../Generator/templates/basic.tpl')->end()
-                    ->scalarNode('fixture_path_default')->defaultValue('%kernel.root_dir%/../src/DataFixtures/ORM')->end()
+                    ->scalarNode('template_lib')->defaultValue(__DIR__ .'/../Generator/templates/lib.tpl')->end()
+                    ->scalarNode('fixture_path_default')->defaultValue('%kernel.root_dir%/DataFixtures/ORM')->end()
                     ->scalarNode('php_cs_fixer')->defaultValue('php-cs-fixer')->end()
 
                     ->arrayNode('test')

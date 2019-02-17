@@ -22,13 +22,17 @@ class FixtureTest extends AbstractFixtureGenerator
         $this->properties       = $properties;
         $this->entityReflection = $entityReflection;
         $this->nameSpaceFixture = $nameSpaceFixture;
+        $this->nameSpaceBaseForDependecies = $nameSpaceFixture;
+
+        $this->calculateDependencies();
 
         $replace = [
             '{NAME_SPACE_FIXTURE}'        => $nameSpaceFixture,
             '{CLASS_NAMESPACE_EXTENDEND}' => $classNameExtendend,
             '{CLASS_NAME_FIXTURE}'        => $className,
             '{CLASS_NAME_EXTENDEND}'      => $classShortNameExtendend,
-            '{DEPENDENCIES}'              => $this->getDependencies(),
+            '{DEPENDENCIES}'              => $this->generateDependenciesString(),
+            '{COMMENT_INTERFACE}'         => $this->generateCommentInterfaceString(),
         ];
 
         return $this->strReplaceAssoc($replace, $templateString);

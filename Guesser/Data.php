@@ -19,7 +19,12 @@ class Data
             return '$this->getReference("'.$referencePrefix.'-1")';
         }
 
-        switch ($property->getType())
+        return $this->createRandomValueSimple($property->getType(), $property->getName());
+    }
+
+    public function createRandomValueSimple($type, $defaultNameString)
+    {
+        switch ($type)
         {
             case 'integer':
             case 'smallint':
@@ -29,9 +34,9 @@ class Data
             case 'float':
                 return 10.3;
             case 'string':
-                return $property->getName();
+                return $defaultNameString;
             case 'text':
-                return $property->getName();
+                return $defaultNameString;
             case 'boolean':
                 return true;
             case 'date':
@@ -40,21 +45,17 @@ class Data
             case 'datetimetz_immutable':
             case 'dateinterval':
             case 'time':
-                $property->setDefaultValueIsScalar(false);
                 return 'new \DateTime()';
             case 'array':
             case 'simple_array':
             case 'json':
             case 'json_array':
 
-                // not using var export because it gets a bad format
-                $property->setDefaultValueIsScalar(false);
-
-                if ($property->getName() === 'roles') {
+                if ($defaultNameString === 'roles') {
                     return '["ROLE_SUPER_ADMIN"]';
                 }
 
-                return '["'.$property->getName().'"]';
+                return "['$defaultNameString']";
 
             case 'object':
                 return ''; // todo
@@ -64,7 +65,7 @@ class Data
 
 
             default:
-                throw new \Exception("Unexpected type '".$property->getType()."' ");
+                throw new \Exception("Unexpected type '$type' ");
         }
     }
 }

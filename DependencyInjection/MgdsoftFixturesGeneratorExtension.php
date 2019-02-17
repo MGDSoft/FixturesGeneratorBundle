@@ -20,6 +20,8 @@ class MgdsoftFixturesGeneratorExtension extends Extension
             $configs
         );
 
+        $container->setParameter('mgdsoft.fixtures_generator.template_lib', $config['template_lib']);
+
         $container->setParameter('mgdsoft.fixtures_generator.entity_path_default', $config['entity_path_default']);
         $container->setParameter('mgdsoft.fixtures_generator.template', $config['template']);
         $container->setParameter('mgdsoft.fixtures_generator.fixture_path_default', $config['fixture_path_default']);

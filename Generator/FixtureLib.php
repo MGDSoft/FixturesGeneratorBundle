@@ -2,21 +2,26 @@
 
 namespace MGDSoft\FixturesGeneratorBundle\Generator;
 
-class Fixture extends AbstractFixtureGenerator
+class FixtureLib extends AbstractFixtureGenerator
 {
     /**
      * @param $properties
      * @param \ReflectionClass $entityReflection
      * @return mixed
      */
-    public function getClassStringFixture($properties, \ReflectionClass $entityReflection, $className, $nameSpaceFixture)
-    {
+    public function getClassStringFixture(
+        $properties,
+        \ReflectionClass $entityReflection,
+        $className,
+        $nameSpaceFixture,
+        $nameSpaceBaseForDependecies
+    ) {
         $templateString = file_get_contents($this->template);
 
         $this->properties       = $properties;
         $this->entityReflection = $entityReflection;
         $this->nameSpaceFixture = $nameSpaceFixture;
-        $this->nameSpaceBaseForDependecies = $nameSpaceFixture;
+        $this->nameSpaceBaseForDependecies = $nameSpaceBaseForDependecies;
 
         $this->calculateDependencies();
 

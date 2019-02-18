@@ -45,7 +45,6 @@ bin/console mgdsoft:fixtures:generate
 This execution will create 3 files.
 **src/DataFixtures/ORM/LibsAuto/AbstractLoadUserFixture.php**, this file is a abstract class you can override all methods in child class, we recommend not to modify this class.  
 ```php
-<?php
 
 namespace App\DataFixtures\ORM\LibsAuto;
 
@@ -132,7 +131,6 @@ abstract class AbstractLoadUserFixture extends AbstractFixture  implements Depen
 
 **src/DataFixtures/ORM/LoadUserFixture.php**, Here you can customize what you want. This class will be load when you execute doctrine fixtures (bin/console doctrine:fixtures:load)
 ```php
-<?php
 
 namespace App\DataFixtures\ORM;
 
@@ -150,7 +148,6 @@ class LoadUserFixture extends AbstractLoadUserFixture
 And for test purpose is created tests/Fixtures/General/LoadTestUserFixture.php. If you dont want this class you can disable in configuration
 
 ```php
-<?php
 
 namespace Tests\Fixtures\General;
 
@@ -170,7 +167,6 @@ How to insert multiples rows?
 
 src/DataFixtures/ORM/LoadUserFixture.php
 ```php
-<?php
 
 namespace App\DataFixtures\ORM;
 
@@ -192,7 +188,6 @@ Each row insert has a doctrine reference with "class Prefix"-"$key"
 If you want to add multiple values for an array you must use "|" symbol
 
 ```php
-<?php
 
 namespace App\DataFixtures\ORM;
 

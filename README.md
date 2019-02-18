@@ -26,7 +26,7 @@ composer require --dev "mgdsoft/fixtures-generator-bundle"
     }
 ```
 
-## For symfony 4 skip this part, for Symfony 3 configure default path 
+**For symfony 4 skip this part**, for Symfony 3 configure default path 
 
 ```yaml
 mgdsoft_fixtures_generator:

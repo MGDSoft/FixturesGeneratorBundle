@@ -33,15 +33,14 @@ mgdsoft_fixtures_generator:
     fixture_path_default: '%kernel.root_dir%/../src/AppBundle/DataFixtures/ORM' # Default %kernel.root_dir%/DataFixtures/ORM
 ```
 
-Execute Command to generate Fixtures, by default it create all for your proyect
+Execute Command to generate Fixtures, by default it take all entities for your proyect and generate all fixtures for play in dev and for test purpose
 
 ```
 bin/console mgdsoft:fixtures:generate
 ```
 
-Result will be
-
-src/DataFixtures/ORM/LibsAuto/AbstractLoadUserFixture.php, this file is a abstract class you can override all methods in child class, We recommend not to modify this class.  
+This execution will create 3 files.
+**src/DataFixtures/ORM/LibsAuto/AbstractLoadUserFixture.php**, this file is a abstract class you can override all methods in child class, We recommend not to modify this class.  
 ```php
 <?php
 
@@ -128,7 +127,7 @@ abstract class AbstractLoadUserFixture extends AbstractFixture  implements Depen
 }
 ```
 
-src/DataFixtures/ORM/LoadUserFixture.php, Here you can customize what you want
+**src/DataFixtures/ORM/LoadUserFixture.php**, Here you can customize what you want. This class will be load when you execute doctrine fixtures (bin/console doctrine:fixtures:load)
 ```php
 <?php
 
@@ -145,7 +144,7 @@ class LoadUserFixture extends AbstractLoadUserFixture
 }
 ```
 
-And for test purpose is created tests/Fixtures/General/LoadTestUserFixture.php
+And for test purpose is created tests/Fixtures/General/LoadTestUserFixture.php. If you dont want this class you can disable in configuration
 
 ```php
 <?php
@@ -166,7 +165,7 @@ class LoadTestUserFixture extends AbstractLoadUserFixture
 How to insert multiples rows?
 -----------------------------
 
-src/DataFixtures/ORM/LoadUserFixture.php, Here you can customize what you want
+src/DataFixtures/ORM/LoadUserFixture.php
 ```php
 <?php
 
@@ -187,7 +186,7 @@ class LoadUserFixture extends AbstractLoadUserFixture
 
 Each row insert has a doctrine reference with "class Prefix"-"$key"
 
-If you want to add multiple values for a array u must use "|" symbol
+If you want to add multiple values for an array you must use "|" symbol
 
 ```php
 <?php
@@ -205,7 +204,7 @@ class LoadUserFixture extends AbstractLoadUserFixture
 }
 ```
 
-For autocomplete fields use deep-assoc-completion in phpstorm
+For autocomplete fields use **deep-assoc-completion** in phpstorm
 
 
 To see all options execute

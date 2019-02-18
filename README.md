@@ -8,7 +8,7 @@ This bundle generate the fixtures code for doctrine, you can can override all co
 Installation
 
 ``` 
-composer require "mgd/fixtures_generator"
+composer require "mgdsoft/fixtures-generator-bundle"
 ```
 
 Add Into bundles.php

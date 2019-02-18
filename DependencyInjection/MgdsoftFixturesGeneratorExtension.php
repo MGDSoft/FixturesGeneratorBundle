@@ -20,10 +20,16 @@ class MgdsoftFixturesGeneratorExtension extends Extension
             $configs
         );
 
+        $container->setParameter('mgdsoft.fixtures_generator.abstract_fixture_class', $config['abstract_fixture_class']);
+
+        $container->setParameter('mgdsoft.fixtures_generator.template_lib', $config['template_lib']);
+
         $container->setParameter('mgdsoft.fixtures_generator.entity_path_default', $config['entity_path_default']);
         $container->setParameter('mgdsoft.fixtures_generator.template', $config['template']);
         $container->setParameter('mgdsoft.fixtures_generator.fixture_path_default', $config['fixture_path_default']);
         $container->setParameter('mgdsoft.fixtures_generator.php_cs_fixer', $config['php_cs_fixer']);
+
+        $container->setParameter('mgdsoft.fixtures_generator.generate_autocomplete_array_options', $config['generate_autocomplete_array_options']);
 
         $container->setParameter('mgdsoft.fixtures_generator.test.enabled', $config['test']['enabled']);
         $container->setParameter('mgdsoft.fixtures_generator.test.template', $config['test']['template']);

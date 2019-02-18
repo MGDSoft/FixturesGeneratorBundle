@@ -1,15 +1,38 @@
 services:
-    mgdsoft.fixtures_generator.extrator.property:
+    mgdsoft.fixtures_generator.extractor.property:
         class: MGDSoft\FixturesGeneratorBundle\Extractor\Property
-        arguments: [ "@doctrine.orm.default_entity_manager"]
+        arguments: [ "@doctrine.orm.entity_manager", "@mgdsoft.fixtures_generator.extractor.entity", "@mgdsoft.fixtures_generator.guesser.data"]
+
+    mgdsoft.fixtures_generator.extractor.entity:
+        class: MGDSoft\FixturesGeneratorBundle\Extractor\Entity
+        arguments: [ "@doctrine.orm.entity_manager", "%mgdsoft.fixtures_generator.entity_path_default%"]
 
     mgdsoft.fixtures_generator.generator.fixture:
         class: MGDSoft\FixturesGeneratorBundle\Generator\Fixture
-        arguments: ["%mgdsoft.fixtures_generator.template%", "@mgdsoft.fixtures_generator.guesser.data"]
+        arguments:
+            - "%mgdsoft.fixtures_generator.template%"
+            - "@mgdsoft.fixtures_generator.guesser.data"
+            - "@mgdsoft.fixtures_generator.extractor.property"
+            - "%mgdsoft.fixtures_generator.generate_autocomplete_array_options%"
+            - "%mgdsoft.fixtures_generator.abstract_fixture_class%"
 
     mgdsoft.fixtures_generator.generator.fixture_test:
         class: MGDSoft\FixturesGeneratorBundle\Generator\FixtureTest
-        arguments: ["%mgdsoft.fixtures_generator.test.template%", "@mgdsoft.fixtures_generator.guesser.data"]
+        arguments:
+            - "%mgdsoft.fixtures_generator.test.template%"
+            - "@mgdsoft.fixtures_generator.guesser.data"
+            - "@mgdsoft.fixtures_generator.extractor.property"
+            - "%mgdsoft.fixtures_generator.generate_autocomplete_array_options%"
+            - "%mgdsoft.fixtures_generator.abstract_fixture_class%"
+
+    mgdsoft.fixtures_generator.generator.fixture_lib:
+        class: MGDSoft\FixturesGeneratorBundle\Generator\FixtureLib
+        arguments:
+            - "%mgdsoft.fixtures_generator.template_lib%"
+            - "@mgdsoft.fixtures_generator.guesser.data"
+            - "@mgdsoft.fixtures_generator.extractor.property"
+            - "%mgdsoft.fixtures_generator.generate_autocomplete_array_options%"
+            - "%mgdsoft.fixtures_generator.abstract_fixture_class%"
 
     mgdsoft.fixtures_generator.guesser.data:
         class: MGDSoft\FixturesGeneratorBundle\Guesser\Data
@@ -19,5 +42,14 @@ services:
 
     mgdsoft.fixtures_generator.guesser.command:
         class: MGDSoft\FixturesGeneratorBundle\Command\FixturesCreatorCommand
-        arguments: [null, "@doctrine.orm.entity_manager", "@mgdsoft.fixtures_generator.extrator.property", "@mgdsoft.fixtures_generator.generator.fixture", "@mgdsoft.fixtures_generator.generator.fixture_test", "@mgdsoft.fixtures_generator.guesser.class_name_space"]
+        arguments:
+            - null
+            - "@doctrine.orm.entity_manager"
+            - "@mgdsoft.fixtures_generator.extractor.property"
+            - "@mgdsoft.fixtures_generator.extractor.entity"
+            - "@mgdsoft.fixtures_generator.generator.fixture_lib"
+            - "@mgdsoft.fixtures_generator.generator.fixture"
+            - "@mgdsoft.fixtures_generator.generator.fixture_test"
+            - "@mgdsoft.fixtures_generator.guesser.class_name_space"
+
         tags: ["console.command"]

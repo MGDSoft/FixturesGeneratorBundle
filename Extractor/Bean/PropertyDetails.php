@@ -10,6 +10,9 @@ class PropertyDetails
     /** @var String|null */
     private $valueDefault;
 
+    /** @var String|null */
+    private $valueDefaultGenerated;
+
     /** @var String */
     private $type;
 
@@ -31,22 +34,10 @@ class PropertyDetails
     /** @var string */
     private $associationMappingsClass;
 
-    /**
-     * PropertyDetails constructor.
-     * @param String $name
-     * @param null|String $valueDefault
-     * @param String $type
-     * @param bool $required
-     * @param bool $skipSetValue
-     * @param bool $skipDefaultValue
-     * @param array $metadataProperty
-     * @param bool $defaultValueIsScalar
-     * @param int $associationMappingsType
-     * @param string $associationMappingsClass
-     */
     public function __construct(
         $name,
         $valueDefault,
+        $valueDefaultGenerated,
         $type,
         $required,
         $skipSetValue,
@@ -56,6 +47,7 @@ class PropertyDetails
         $associationMappingsClass=null
     ) {
         $this->name                     = $name;
+        $this->valueDefaultGenerated    = $valueDefaultGenerated;
         $this->valueDefault             = $valueDefault;
         $this->type                     = $type;
         $this->required                 = $required;
@@ -73,7 +65,6 @@ class PropertyDetails
     {
         return $this->type;
     }
-
 
     /**
      * @return String
@@ -160,5 +151,19 @@ class PropertyDetails
     public function isAssociationMapping()
     {
         return $this->associationMappingsClass !== null;
+    }
+
+    public function getValueDefaultGenerated()
+    {
+        return $this->valueDefaultGenerated;
+    }
+
+    public function exportDefaultValueGenerateToPHPCode()
+    {
+        if ($this->isDefaultValueIsScalar()) {
+            return var_export($this->getValueDefaultGenerated(), true);
+        } else {
+            return $this->getValueDefaultGenerated();
+        }
     }
 }

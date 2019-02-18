@@ -2,14 +2,8 @@
 
 namespace MGDSoft\FixturesGeneratorBundle\Generator;
 
-use MGDSoft\FixturesGeneratorBundle\Extractor\Bean\PropertyDetails;
-use MGDSoft\FixturesGeneratorBundle\Guesser\Data;
-
-class FixtureTest extends AbstractFixtureGenerator
+class FixtureLib extends AbstractFixtureGenerator
 {
-    const prefixNewFixture = 'LoadTest';
-    const suffixNewFixture = 'Fixture';
-
     /**
      * @param $properties
      * @param \ReflectionClass $entityReflection
@@ -20,15 +14,13 @@ class FixtureTest extends AbstractFixtureGenerator
         \ReflectionClass $entityReflection,
         $className,
         $nameSpaceFixture,
-        $nameSpaceBaseForDependecies,
-        $fixtureClassNameExtended = null
+        $nameSpaceBaseForDependecies
     ) {
         $this->properties       = $properties;
         $this->entityReflection = $entityReflection;
-        $this->className = $className;
-        $this->nameSpaceBaseForDependecies = $nameSpaceBaseForDependecies;
         $this->nameSpaceFixture = $nameSpaceFixture;
-        $this->abstractClass = $fixtureClassNameExtended ?? $this->abstractClass;
+        $this->nameSpaceBaseForDependecies = $nameSpaceBaseForDependecies;
+        $this->className = $className;
 
         return $this->getClassStringFixtureCommon();
     }

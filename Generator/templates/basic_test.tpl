@@ -2,11 +2,10 @@
 
 namespace {NAME_SPACE_FIXTURE};
 
-use {CLASS_NAMESPACE_EXTENDEND};
-use MGDSoft\FixturesGeneratorBundle\LoaderFixtures\AbstractFixture;
+use {ABSTRACT_FIXTURE_NAMESPACE};
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-class {CLASS_NAME_FIXTURE} extends {CLASS_NAME_EXTENDEND} implements DependentFixtureInterface
+class {CLASS_NAME_FIXTURE} extends {ABSTRACT_FIXTURE_SHORT_NAME} {COMMENT_INTERFACE} implements DependentFixtureInterface
 {
     protected function loadRows()
     {

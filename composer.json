@@ -1,7 +1,7 @@
 {
-    "name": "mgd/fixtures-generator-bundle",
+    "name": "mgdsoft/fixtures-generator-bundle",
     "type": "symfony-bundle",
-    "description": "This Bundle provides a easy fixture generator bundle",
+    "description": "This Bundle provides a easy fixture generator for doctrine entities",
     "keywords": ["rest"],
     "license": "MIT",
     "authors": [
@@ -16,10 +16,10 @@
         }
     },
     "require": {
-        "php": "^5.5.9|~7.0",
-        "jms/serializer-bundle": "^3.1",
-        "symfony/console": "4.2.*",
-        "symfony/orm-pack": "^1.0",
-        "symfony/process": "4.2.*"
+        "php": "~7.0",
+        "symfony/console": "^3.4.0||^4.1.0",
+        "doctrine/orm": "^2.5",
+        "symfony/process": "^3.0||^4.0",
+        "doctrine/doctrine-fixtures-bundle": "^3.1||^2.3"
     }
 }

@@ -129,7 +129,7 @@ abstract class AbstractLoadUserFixture extends AbstractFixture  implements Depen
 }
 ```
 
-**src/DataFixtures/ORM/LoadUserFixture.php**, Here you can customize what you want. This class will be load when you execute doctrine fixtures (bin/console doctrine:fixtures:load)
+**src/DataFixtures/ORM/LoadUserFixture.php**, Here you can customize what you want. This class will be loaded when you execute doctrine fixtures (bin/console doctrine:fixtures:load)
 ```php
 
 namespace App\DataFixtures\ORM;
@@ -202,7 +202,7 @@ class LoadUserFixture extends AbstractLoadUserFixture
 }
 ```
 
-For autocomplete fields use **deep-assoc-completion** in phpstorm
+For autocomplete fields use **deep-assoc-completion** in phpstorm RECOMMENDED
 
 
 To see all options execute
@@ -214,7 +214,6 @@ bin/console mgdsoft:fixtures:generate -h
 ## Configuration
 
 ```yaml
-# Default configuration for extension with alias: "mgdsoft_fixtures_generator"
 mgdsoft_fixtures_creator:
     abstract_fixture_class: MGDSoft\FixturesGeneratorBundle\LoaderFixtures\AbstractFixture
     entity_path_default:  App\Entity

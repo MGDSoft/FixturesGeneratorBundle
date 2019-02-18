@@ -8,18 +8,29 @@ This bundle generate the fixtures code for doctrine, you can can override all co
 Installation
 
 ``` 
-composer require "mgdsoft/fixtures-generator-bundle"
+composer require --dev "mgdsoft/fixtures-generator-bundle"
 ```
 
-Add Into bundles.php
-```
+Add Bundle
+
+
+**For Symfony 4**, bundles.php
+```php
     MGDSoft\FixturesGeneratorBundle\MgdsoftFixturesGeneratorBundle::class => ['dev' => true],
 ```
 
-Configure
-
+**For Symfony 3**, AppKernel.php
+```php
+    if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
+        $bundles[] = new MGDSoft\FixturesGeneratorBundle\MgdsoftFixturesGeneratorBundle()
+    }
 ```
-mgdsoft_fixtures_generator: ~
+
+For symfony 4 skip this part, for Symfony 3 configure default path 
+
+```yaml
+mgdsoft_fixtures_generator:
+    fixture_path_default: '%kernel.root_dir%/../src/AppBundle/DataFixtures/ORM' # Default %kernel.root_dir%/DataFixtures/ORM
 ```
 
 Execute Command to generate Fixtures, by default it create all for your proyect
@@ -42,11 +53,9 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
 abstract class AbstractLoadUserFixture extends AbstractFixture  implements DependentFixtureInterface
 {
-    protected function loadRows()
-    {
-        $this->loadRow('1', []);
-    }
-
+    /**
+     * (Skipped) all parameters to auto complete IDE 
+     */
     protected function loadRow($key, array $overrideDefaultValues = [])
     {
         $obj = new User();

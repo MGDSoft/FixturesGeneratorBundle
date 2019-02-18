@@ -33,7 +33,7 @@ mgdsoft_fixtures_generator:
     fixture_path_default: '%kernel.root_dir%/../src/AppBundle/DataFixtures/ORM' # Default %kernel.root_dir%/DataFixtures/ORM
 ```
 
-Execute Command to generate Fixtures, by default it take all entities for your proyect and generate all fixtures for play in dev and for test purpose
+Execute Command to generate Fixtures, by default it take all entities for your proyect and generate all fixtures for play in dev and for test purpose. If you want to create for an entity use **--entity** option, and if you want to create all dependencies of that entity use **-r** option
 
 ```
 bin/console mgdsoft:fixtures:generate

@@ -1,18 +1,18 @@
 Fixtures Generator Bundle For Doctrine (Code Generator)
 ========================================================
 
-This bundle generate the fixtures code for doctrine, you can can override all code without problems 
+This bundle generate the fixtures code for doctrine, you can override all code without problems 
 
 **This bundle is in development becareful**
 
 Installation
+------------
 
 ``` 
 composer require --dev "mgdsoft/fixtures-generator-bundle"
 ```
 
-Add Bundle
-
+## Add Bundle
 
 **For Symfony 4**, bundles.php
 ```php
@@ -26,21 +26,24 @@ Add Bundle
     }
 ```
 
-For symfony 4 skip this part, for Symfony 3 configure default path 
+## For symfony 4 skip this part, for Symfony 3 configure default path 
 
 ```yaml
 mgdsoft_fixtures_generator:
     fixture_path_default: '%kernel.root_dir%/../src/AppBundle/DataFixtures/ORM' # Default %kernel.root_dir%/DataFixtures/ORM
 ```
 
-Execute Command to generate Fixtures, by default it take all entities for your proyect and generate all fixtures for play in dev and for test purpose. If you want to create for an entity use **--entity** option, and if you want to create all dependencies of that entity use **-r** option
+Show me a example ¬¬
+--------------------
+
+Execute command to generate Fixtures, by default it will take all entities for your proyect and will generate all fixtures for dev and test. If you want to create for an entity use **--entity** option, and if you want to create with all his dependencies use **-r** option
 
 ```
 bin/console mgdsoft:fixtures:generate
 ```
 
 This execution will create 3 files.
-**src/DataFixtures/ORM/LibsAuto/AbstractLoadUserFixture.php**, this file is a abstract class you can override all methods in child class, We recommend not to modify this class.  
+**src/DataFixtures/ORM/LibsAuto/AbstractLoadUserFixture.php**, this file is a abstract class you can override all methods in child class, we recommend not to modify this class.  
 ```php
 <?php
 
@@ -213,7 +216,7 @@ To see all options execute
 bin/console mgdsoft:fixtures:generate -h 
 ```
 
-Configuration
+## Configuration
 
 ```yaml
 # Default configuration for extension with alias: "mgdsoft_fixtures_generator"
@@ -231,4 +234,4 @@ mgdsoft_fixtures_creator:
         fixture_path_default: '%kernel.root_dir%/../tests/Fixtures/General'
 ```
 
-All pull request are welcome
+All pull request are welcome :sunglasses:

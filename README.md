@@ -1,9 +1,9 @@
-Fixtures Generator Bundle For Doctrine
-==================================
+Fixtures Generator Bundle For Doctrine (Code Generator) :sunglasses:
+========================================================
 
 This bundle generate the fixtures code for doctrine, you can can override all code without problems 
 
-**Unestable becareful**
+**This bundle is in development becareful**
 
 Installation
 

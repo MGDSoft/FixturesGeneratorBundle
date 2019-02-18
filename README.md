@@ -26,15 +26,15 @@ composer require --dev "mgdsoft/fixtures-generator-bundle"
     }
 ```
 
-**For symfony 4 skip this part**, for Symfony 3 configure default path 
+**For Symfony 4 skip this part**, for Symfony 3 configure default path 
 
 ```yaml
 mgdsoft_fixtures_generator:
     fixture_path_default: '%kernel.root_dir%/../src/AppBundle/DataFixtures/ORM' # Default %kernel.root_dir%/DataFixtures/ORM
 ```
 
-Show me a example ¬¬
---------------------
+Show me an example ¬¬
+---------------------
 
 Execute command to generate Fixtures, by default it will take all entities for your proyect and will generate all fixtures for dev and test. If you want to create for an entity use **--entity** option, and if you want to create with all his dependencies use **-r** option
 

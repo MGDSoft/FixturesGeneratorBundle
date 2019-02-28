@@ -4,10 +4,11 @@ namespace MGDSoft\FixturesGeneratorBundle\LoaderFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
 
-abstract class AbstractFixture extends Fixture
+abstract class AbstractFixture extends Fixture implements ContainerAwareInterface
 {
     /** @var  ObjectManager */
     protected $om;

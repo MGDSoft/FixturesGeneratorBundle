@@ -23,6 +23,8 @@ abstract class {CLASS_NAME_FIXTURE} extends {ABSTRACT_FIXTURE_SHORT_NAME} {COMME
 
         $this->om->persist($obj);
         $this->addReference("{FIXTURE_REFERENCE_PREFIX}-".{FIXTURE_REFERENCE_ID}, $obj);
+
+        return $obj;
     }
 
     protected function getDefaultValues()

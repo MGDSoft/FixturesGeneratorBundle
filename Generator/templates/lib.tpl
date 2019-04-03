@@ -16,10 +16,7 @@ abstract class {CLASS_NAME_FIXTURE} extends {ABSTRACT_FIXTURE_SHORT_NAME} {COMME
         $defaultValues = $this->getDefaultValues();
 
         $properties = array_merge($defaultValues, $overrideDefaultValues);
-
-        foreach ($properties as $property => $value) {
-            $this->propertyAccessor->setValue($obj, $property, $value);
-        }
+        $this->addValues($properties, $obj);
 
         $this->om->persist($obj);
         $this->addReference("{FIXTURE_REFERENCE_PREFIX}-".{FIXTURE_REFERENCE_ID}, $obj);

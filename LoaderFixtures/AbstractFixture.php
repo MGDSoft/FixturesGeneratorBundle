@@ -31,7 +31,7 @@ abstract class AbstractFixture extends Fixture implements ContainerAwareInterfac
 
     abstract protected function loadRows();
 
-    protected function addValues($properties)
+    protected function addValues($properties, $obj)
     {
         foreach ($properties as $property => $value) {
             $property = $this->cutNameToAddMultiplesValues($property);

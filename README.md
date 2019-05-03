@@ -3,8 +3,6 @@ Fixtures Generator Bundle For Doctrine (Code Generator)
 
 This bundle generate the fixtures code for doctrine, you can override all code without problems 
 
-**This bundle is in development becareful**
-
 Installation
 ------------
 
